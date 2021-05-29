@@ -1,0 +1,50 @@
+{
+  "name": "dna-frontend-test-app",
+  "version": "1.0.0",
+  "description": "Test app exercise for DNA company",
+  "scripts": {
+    "build": "webpack",
+    "start": "webpack serve --open --config webpack-dev.config.js",
+    "test": "jest"
+  },
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aszlacheta/dna-frontend-test.git"
+  },
+  "keywords": [
+    "dna",
+    "frontend",
+    "react",
+    "redux",
+    "ant-design",
+    "webpack"
+  ],
+  "author": "Aleksandra Szlacheta",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aszlacheta/dna-frontend-test/issues"
+  },
+  "homepage": "https://github.com/aszlacheta/dna-frontend-test#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.14.3",
+    "@babel/core": "^7.14.3",
+    "@babel/preset-env": "^7.14.4",
+    "@babel/preset-react": "^7.13.13",
+    "babel": "^6.23.0",
+    "babel-jest": "^27.0.2",
+    "babel-loader": "^8.2.2",
+    "html-webpack-plugin": "^5.3.1",
+    "jest": "^27.0.3",
+    "less-loader": "^9.0.0",
+    "loader": "^2.1.1",
+    "react-test-renderer": "^17.0.2",
+    "webpack": "^5.38.1",
+    "webpack-cli": "^4.7.0",
+    "webpack-dev-server": "^3.11.2"
+  },
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
+}
