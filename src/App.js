@@ -1,10 +1,13 @@
 import React from 'react';
+import { withTranslation } from 'react-i18next';
 
-export default function App() {
+function App({ t }) {
 
     return (
         <React.Fragment>
-            Test
+            {t('test')}
         </React.Fragment>
     )
 }
+
+export default withTranslation()(App);
