@@ -16,7 +16,7 @@ Regarding testing, it takes into consideration:
 To be able to run the application:
 1. Clone repository
 1. Make sure you checked out latest `master` branch
-1. Create `.env` file with all the fields mentioned in `.env.default`
+1. Create `.env` file with all the fields mentioned in `.env.example`
 1. Run `npm i`
 1. Run `npm start`
 1. Application should start on `http://localhost:3000`
