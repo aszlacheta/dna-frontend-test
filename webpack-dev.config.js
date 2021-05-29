@@ -24,6 +24,7 @@ module.exports = Object.assign(webpackProdConfig, {
         ]
     },
     plugins: [
+        ...webpackProdConfig.plugins,
         new HtmlWebpackPlugin({
             title: "DNA frontend test app",
             template: './index.html'

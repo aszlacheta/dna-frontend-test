@@ -1,5 +1,6 @@
 import React from 'react';
 import { withTranslation } from 'react-i18next';
+import axios from 'axios';
 
 /**
  * Root component for the test application
@@ -8,6 +9,10 @@ import { withTranslation } from 'react-i18next';
  * @constructor
  */
 function App({ t }) {
+
+    axios.get(process.env.BACKEND_URL + '/users').then(response => {
+        console.log(response);
+    });
 
     return (
         <React.Fragment>
