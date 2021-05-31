@@ -1,3 +1,27 @@
 {
-  "test": "To jest test"
+  "Menu": {
+    "Logo": "DNA test app",
+    "Users": "Użytkownicy"
+  },
+  "Header": {
+    "Expand": "Kliknij by powiększyć",
+    "Collapse": "Kliknij by zwinąć",
+    "HelloMessage": "Cześć, {{name}}!",
+    "Logout": {
+      "Label": "Wyloguj",
+      "Tooltip": "Ta funkcjonalność będzie zaimplementowana wkrótce"
+    }
+  },
+  "Users": {
+    "Name": "Imię i nazwisko",
+    "Username": "Nazwa użytkownika",
+    "Email": "E-mail",
+    "Actions": "Akcje",
+    "ContextMenu": {
+      "Details": "Szczegóły"
+    }
+  },
+  "Errors": {
+    "NotFound": "Nie znaleziono"
+  }
 }

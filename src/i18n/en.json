@@ -1,3 +1,27 @@
 {
-  "test": "It's a test"
+  "Menu": {
+    "Logo": "DNA test app",
+    "Users": "Users"
+  },
+  "Header": {
+    "Expand": "Click to expand",
+    "Collapse": "Click to collapse",
+    "HelloMessage": "Hello, {{name}}!",
+    "Logout": {
+      "Label": "Log out",
+      "Tooltip": "This functionality will be implemented soon"
+    }
+  },
+  "Users": {
+    "Name": "Name",
+    "Username": "Username",
+    "Email": "E-mail",
+    "Actions": "Actions",
+    "ContextMenu": {
+      "Details": "Details"
+    }
+  },
+  "Errors": {
+    "NotFound": "Not found"
+  }
 }
