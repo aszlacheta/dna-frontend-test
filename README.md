@@ -32,8 +32,24 @@ To generate documentation from the code simply run NPM script: `npm run jsdoc`.
 ## How to run static code analysis (via ESlint)?
 To run static code analysis run NPM script `npm run eslint`
 
-What should be further developed?
-TBD
-
-What should be added?
-TBD
+## What should be added/further developed?
+* Adding unit tests (I have focused mostly on project configuration)
+* Adding e2e tests
+* Adding Prettier (next to existing ESlint)
+* Git hooks and conventional commits
+* Auto creation of release notes from commits
+* Code documentation
+* More focus on RWD 
+* Adding themes
+* Security - authorisation and authentication
+* Lazy loading/code-splitting/tree-shaking 
+* Adding hashes to bundles so browser is forced to download new files each time deployment happens
+* Automation configuration (pipelines)
+* More user-friendly error handling
+* FE & BE contract validation via for example JSONSchema
+* Reports out of linters and testing tools
+* User manual
+* CSS Modules/Styled components
+* Making app more user-friendly and looking attractive
+* Storing some data in session storage so user, after refreshing the page, might be redirected to the last opened page in pagination
+* Scrolling to the latest checkout out user (currently it's only highlighted)
