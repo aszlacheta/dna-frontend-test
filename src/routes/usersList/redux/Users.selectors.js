@@ -1,4 +1,4 @@
-const UsersListSelectors = {
+const UsersSelectors = {
   data: (state) => state.users.data,
   isLoading: (state) => state.users.isLoading,
   page: (state) => state.users.page,
@@ -6,4 +6,4 @@ const UsersListSelectors = {
   total: (state) => state.users.total,
 };
 
-export default UsersListSelectors;
+export default UsersSelectors;

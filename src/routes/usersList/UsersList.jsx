@@ -2,11 +2,15 @@ import React, { useEffect } from 'react';
 import { withTranslation } from 'react-i18next';
 import { Table } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
-import UsersListSelectors from './redux/UsersList.selectors';
-import { getUsers } from './redux/UsersList.actions';
+import { useHistory } from 'react-router-dom';
+import UsersSelectors from './redux/Users.selectors';
+import { getUsers } from './redux/Users.actions';
 import UsersListContextMenu from './UsersListContextMenu';
+import UserSelectors from '../userDetails/redux/User.selectors';
 
 import './UsersList.less';
+
+export const ENCODED_DOT = '_dot_';
 
 /**
  * Component used to render users table
@@ -15,12 +19,14 @@ import './UsersList.less';
  * @constructor
  */
 function UsersList({ t }) {
+  const history = useHistory();
   const dispatch = useDispatch();
-  const data = useSelector(UsersListSelectors.data);
-  const isLoading = useSelector(UsersListSelectors.isLoading);
-  const page = useSelector(UsersListSelectors.page);
-  const limit = useSelector(UsersListSelectors.limit);
-  const total = useSelector(UsersListSelectors.total);
+  const data = useSelector(UsersSelectors.data);
+  const isLoading = useSelector(UsersSelectors.isLoading);
+  const page = useSelector(UsersSelectors.page);
+  const limit = useSelector(UsersSelectors.limit);
+  const total = useSelector(UsersSelectors.total);
+  const previouslySelectedUser = useSelector(UserSelectors.user);
   const pagination = {
     current: page,
     pageSize: limit,
@@ -31,28 +37,48 @@ function UsersList({ t }) {
     dispatch(getUsers(page, limit));
   }, []);
 
+  const onRowClick = (email) => {
+    history.push(`/users/${email}`);
+  };
+
+  const renderCell = (text, row) => {
+    const encodedEmail = encodeURIComponent(row.email.replace(/\./ig, ENCODED_DOT));
+
+    return (
+      <div onClick={() => onRowClick(encodedEmail)} className="clickable-cell">
+        {text}
+      </div>
+    );
+  };
+
   const columns = [
     {
       title: t('Users.Name'),
       dataIndex: 'name',
       key: 'name',
+      className: 'clickable-cell-container',
+      render: renderCell,
     },
     {
       title: t('Users.Username'),
       dataIndex: 'username',
       key: 'username',
+      className: 'clickable-cell-container',
+      render: renderCell,
     },
     {
       title: t('Users.Email'),
       dataIndex: 'email',
       key: 'email',
+      className: 'clickable-cell-container',
+      render: renderCell,
     },
     {
       title: t('Users.Actions'),
       dataIndex: 'actions',
       key: 'actions',
       render: () => (
-        <UsersListContextMenu />
+        <UsersListContextMenu onDetailsOpen={onRowClick} />
       ),
     },
   ];
@@ -64,6 +90,10 @@ function UsersList({ t }) {
     dispatch(getUsers(pageIndex, limitNumber));
   };
 
+  const setHighlighted = (row) => {
+    return row.username === previouslySelectedUser.username ? 'user-row-highlighted' : '';
+  };
+
   return (
     <Table
       className="users-list-table padding-around"
@@ -71,6 +101,7 @@ function UsersList({ t }) {
       columns={columns}
       pagination={pagination}
       loading={isLoading}
+      rowClassName={(row) => setHighlighted(row)}
       onChange={onChange}
     />
   );

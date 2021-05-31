@@ -1,5 +1,5 @@
 import { createReducer } from '@reduxjs/toolkit';
-import { getUsersRequested, getUsersSucceeded } from './UsersList.actions';
+import { getUsersRequested, getUsersSucceeded } from './Users.actions';
 
 const initState = {
   data: [],

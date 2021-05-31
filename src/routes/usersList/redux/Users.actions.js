@@ -5,6 +5,10 @@ export const getUsersRequested = createAction('GET_USERS_REQUESTED');
 export const getUsersSucceeded = createAction('GET_USERS_SUCCEEDED');
 export const getUsersFailed = createAction('GET_USERS_FAILED');
 
+export const getUserRequested = createAction('GET_USER_REQUESTED');
+export const getUserSucceeded = createAction('GET_USER_SUCCEEDED');
+export const getUserFailed = createAction('GET_USER_FAILED');
+
 export const getUsers = (page, limit) => (dispatch) => {
   dispatch(getUsersRequested());
 

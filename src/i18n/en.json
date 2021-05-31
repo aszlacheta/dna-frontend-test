@@ -23,5 +23,15 @@
   },
   "Errors": {
     "NotFound": "Not found"
+  },
+  "UserDetails": {
+    "Name": "Name",
+    "Username": "Username",
+    "UserInfo": "User info",
+    "Phone": "Phone",
+    "Website": "Website",
+    "Street": "Street",
+    "ZipCode": "Zip-code",
+    "City": "City"
   }
 }

@@ -2,5 +2,21 @@
   .users-list-table {
     overflow: auto;
     height: 100%;
+
+    .ant-table-row {
+      cursor: pointer;
+    }
+
+    .clickable-cell-container {
+      padding: 0;
+
+      .clickable-cell {
+        padding: 16px;
+      }
+    }
+
+    .user-row-highlighted {
+      box-shadow: 0 0 15px rgb(0 0 0 / 12%);
+    }
   }
 }
