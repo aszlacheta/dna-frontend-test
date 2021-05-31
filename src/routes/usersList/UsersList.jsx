@@ -9,6 +9,8 @@ import UsersListContextMenu from './UsersListContextMenu';
 
 import './UsersList.less';
 
+export const ENCODED_DOT = '_dot_';
+
 /**
  * Component used to render users table
  * @param t
@@ -33,15 +35,19 @@ function UsersList({ t }) {
     dispatch(getUsers(page, limit));
   }, []);
 
-  const onRowClick = (username) => {
-    history.push(`/users/${username}`);
+  const onRowClick = (email) => {
+    history.push(`/users/${email}`);
   };
 
-  const renderCell = (text, row) => (
-    <div onClick={() => onRowClick(row.username)} className="clickable-cell">
-      {text}
-    </div>
-  );
+  const renderCell = (text, row) => {
+    const encodedEmail = encodeURIComponent(row.email.replace(/\./ig, ENCODED_DOT));
+
+    return (
+      <div onClick={() => onRowClick(encodedEmail)} className="clickable-cell">
+        {text}
+      </div>
+    );
+  };
 
   const columns = [
     {

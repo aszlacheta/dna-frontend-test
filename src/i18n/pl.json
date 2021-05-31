@@ -23,5 +23,15 @@
   },
   "Errors": {
     "NotFound": "Nie znaleziono"
+  },
+  "UserDetails": {
+    "Name": "Imię i nazwisko",
+    "Username": "Nazwa użytkownika",
+    "UserInfo": "Informacje o użytkowniku",
+    "Phone": "Telefon",
+    "Website": "Strona internetowa",
+    "Street": "Ulica",
+    "ZipCode": "Kod pocztowy",
+    "City": "Miasto"
   }
 }

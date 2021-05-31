@@ -14,7 +14,7 @@ const UserReducer = createReducer(initState, {
   [getUserSucceeded]: (state, action) => ({
     ...state,
     isLoading: false,
-    data: action.payload.response,
+    data: action.payload,
   }),
   [getUserFailed]: (state) => ({
     ...state,
