@@ -18,7 +18,9 @@
         "react"
     ],
     "rules": {
-        "quotes": ["error", "single", { "avoidEscape": true }]
-
+        "quotes": ["error", "single", { "avoidEscape": true }],
+        "react/prop-types": [0, {
+            "ignore": ["t"]
+        }]
     }
 }
