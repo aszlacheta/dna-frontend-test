@@ -36,6 +36,9 @@
     "babel": "^6.23.0",
     "babel-jest": "^27.0.2",
     "babel-loader": "^8.2.2",
+    "babel-plugin-import": "^1.13.3",
+    "clean-webpack-plugin": "^4.0.0-alpha.0",
+    "css-loader": "^5.2.6",
     "dotenv-webpack": "^7.0.2",
     "eslint": "^7.27.0",
     "eslint-config-airbnb": "^18.2.1",
@@ -49,18 +52,24 @@
     "less-loader": "^9.0.0",
     "loader": "^2.1.1",
     "react-test-renderer": "^17.0.2",
+    "style-loader": "^2.0.0",
     "webpack": "^5.38.1",
     "webpack-cli": "^4.7.0",
     "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
+    "@ant-design/icons": "^4.6.2",
     "@reduxjs/toolkit": "^1.5.1",
+    "antd": "^4.16.0",
     "axios": "^0.21.1",
     "dotenv": "^10.0.0",
     "i18next": "^20.3.1",
+    "less": "^4.1.1",
+    "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-i18next": "^11.10.0",
-    "react-redux": "^7.2.4"
+    "react-redux": "^7.2.4",
+    "react-router-dom": "^5.2.0"
   }
 }
