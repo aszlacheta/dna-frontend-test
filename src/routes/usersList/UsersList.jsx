@@ -2,8 +2,9 @@ import React, { useEffect } from 'react';
 import { withTranslation } from 'react-i18next';
 import { Table } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
-import UsersListSelectors from './redux/UsersList.selectors';
-import { getUsers } from './redux/UsersList.actions';
+import { useHistory } from 'react-router-dom';
+import UsersSelectors from './redux/Users.selectors';
+import { getUsers } from './redux/Users.actions';
 import UsersListContextMenu from './UsersListContextMenu';
 
 import './UsersList.less';
@@ -15,12 +16,13 @@ import './UsersList.less';
  * @constructor
  */
 function UsersList({ t }) {
+  const history = useHistory();
   const dispatch = useDispatch();
-  const data = useSelector(UsersListSelectors.data);
-  const isLoading = useSelector(UsersListSelectors.isLoading);
-  const page = useSelector(UsersListSelectors.page);
-  const limit = useSelector(UsersListSelectors.limit);
-  const total = useSelector(UsersListSelectors.total);
+  const data = useSelector(UsersSelectors.data);
+  const isLoading = useSelector(UsersSelectors.isLoading);
+  const page = useSelector(UsersSelectors.page);
+  const limit = useSelector(UsersSelectors.limit);
+  const total = useSelector(UsersSelectors.total);
   const pagination = {
     current: page,
     pageSize: limit,
@@ -31,28 +33,44 @@ function UsersList({ t }) {
     dispatch(getUsers(page, limit));
   }, []);
 
+  const onRowClick = (username) => {
+    history.push(`/users/${username}`);
+  };
+
+  const renderCell = (text, row) => (
+    <div onClick={() => onRowClick(row.username)} className="clickable-cell">
+      {text}
+    </div>
+  );
+
   const columns = [
     {
       title: t('Users.Name'),
       dataIndex: 'name',
       key: 'name',
+      className: 'clickable-cell-container',
+      render: renderCell,
     },
     {
       title: t('Users.Username'),
       dataIndex: 'username',
       key: 'username',
+      className: 'clickable-cell-container',
+      render: renderCell,
     },
     {
       title: t('Users.Email'),
       dataIndex: 'email',
       key: 'email',
+      className: 'clickable-cell-container',
+      render: renderCell,
     },
     {
       title: t('Users.Actions'),
       dataIndex: 'actions',
       key: 'actions',
       render: () => (
-        <UsersListContextMenu />
+        <UsersListContextMenu onDetailsOpen={onRowClick} />
       ),
     },
   ];
