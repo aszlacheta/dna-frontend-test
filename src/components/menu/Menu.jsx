@@ -2,10 +2,11 @@ import React from 'react';
 import { Menu as MenuAntd } from 'antd';
 import { withTranslation } from 'react-i18next';
 import { UserOutlined } from '@ant-design/icons';
+import { useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom';
+import MenuSelectors from './redux/Menu.selectors';
 
 import './Menu.less';
-import { useSelector } from 'react-redux';
-import MenuSelectors from './redux/Menu.selectors';
 
 /**
  * Components used to render left side menu
@@ -29,7 +30,9 @@ function Menu({ t }) {
           <span>{t('Menu.Logo')}</span>
         </div>
         <MenuAntd.Item key="users" icon={<UserOutlined />}>
-          {t('Menu.Users')}
+          <NavLink to="/users">
+            {t('Menu.Users')}
+          </NavLink>
         </MenuAntd.Item>
       </MenuAntd>
     </>

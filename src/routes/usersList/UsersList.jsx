@@ -6,6 +6,7 @@ import { useHistory } from 'react-router-dom';
 import UsersSelectors from './redux/Users.selectors';
 import { getUsers } from './redux/Users.actions';
 import UsersListContextMenu from './UsersListContextMenu';
+import UserSelectors from '../userDetails/redux/User.selectors';
 
 import './UsersList.less';
 
@@ -25,6 +26,7 @@ function UsersList({ t }) {
   const page = useSelector(UsersSelectors.page);
   const limit = useSelector(UsersSelectors.limit);
   const total = useSelector(UsersSelectors.total);
+  const previouslySelectedUser = useSelector(UserSelectors.user);
   const pagination = {
     current: page,
     pageSize: limit,
@@ -88,6 +90,10 @@ function UsersList({ t }) {
     dispatch(getUsers(pageIndex, limitNumber));
   };
 
+  const setHighlighted = (row) => {
+    return row.username === previouslySelectedUser.username ? 'user-row-highlighted' : '';
+  };
+
   return (
     <Table
       className="users-list-table padding-around"
@@ -95,6 +101,7 @@ function UsersList({ t }) {
       columns={columns}
       pagination={pagination}
       loading={isLoading}
+      rowClassName={(row) => setHighlighted(row)}
       onChange={onChange}
     />
   );
